@@ -10,6 +10,14 @@ namespace CSAdv2_31
     internal class Program
     {
 
+        class Dummy : IDisposable
+        {
+            public void Dispose()
+            {
+                Console.WriteLine("Dummy 객체의 Dispose() 호출");
+            }
+        }
+
         class Product : IComparable<Product>
         {
             public string Name { get; set; }
@@ -47,6 +55,12 @@ namespace CSAdv2_31
             {
                 Console.WriteLine(item);
             }
+
+            using (Dummy dummy = new Dummy())
+            {
+                Console.WriteLine("Hello~");
+            }
+            
 
         }
     }
