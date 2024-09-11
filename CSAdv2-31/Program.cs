@@ -10,6 +10,19 @@ namespace CSAdv2_31
     internal class Program
     {
 
+        class TestClass : IBasic
+        {
+            public int TestProperty {
+                get { return -1; }
+                set { int n = value;  } 
+            }
+
+            public int TestInstanceMethod()
+            {
+                return -1;
+            }
+        }
+
         class Dummy : IDisposable
         {
             public void Dispose()
@@ -61,6 +74,7 @@ namespace CSAdv2_31
                 Console.WriteLine("Hello~");
             }
             
+            IBasic basic = new TestClass();
 
         }
     }
